@@ -109,8 +109,8 @@ class logreg:
         patience = 0
         for i in range(epochs):
             score = self._score(self.x)
-            score[np.where(score == 0)[0]] = 1e-6
-            score[np.where(score == 1)[0]] = 1 - 1e-6
+            score[np.where(score == 0)[0]] = 1e-8
+            score[np.where(score == 1)[0]] = 1 - 1e-8
             loss = -1*np.sum(self.y*np.log(score) + (1-self.y)*np.log(1-score)) / self.y.shape[0] + \
                 reg_param * np.sum(self.w[1:]**2) / (2*self.y.shape[0])
             
