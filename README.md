@@ -71,9 +71,9 @@ So then, working our way out through the update equations, we get
 $$\nabla_{\theta_2} J(\theta) = \frac{dJ(\theta)}{da_2}\frac{da_2}{dz_2}\frac{dz_2}{d\theta_2} = \frac{-1}{n} \sum_{i=1}^{n} (y^{(i)} - a_2^{(i)})a_1^{(i)} $$
 
 $$\nabla_{b_2} J(\theta) = \frac{dJ(\theta)}{da_2}\frac{da_2}{dz_2}\frac{dz_2}{db_2} = \frac{-1}{n} \sum_{i=1}^{n} (y^{(i)} - a_2^{(i)}) $$
-$$\nabla_{\theta_1} J(\theta) = \frac{dJ(\theta)}{da_2}\frac{da_2}{dz_2}\frac{dz_2}{da_1}\frac{da_1}{dz_1}\frac{dz_1}{d\theta_1} = \frac{-1}{n} \sum_{i=1}^{n} (y^{(i)} - a_2^{(i)})\theta_2\sigma(z_1)(1 - \sigma(z_1))x^{(i)} $$
+$$\nabla_{\theta_1} J(\theta) = \frac{dJ(\theta)}{da_2}\frac{da_2}{dz_2}\frac{dz_2}{da_1}\frac{da_1}{dz_1}\frac{dz_1}{d\theta_1} = \frac{-1}{n} \sum_{i=1}^{n} (y^{(i)} - a_2^{(i)})\theta_2\sigma(z_1^{(i)})(1 - \sigma(z_1^{(i)}))x^{(i)} $$
 
-$$\nabla_{b_1} J(\theta) = \frac{dJ(\theta)}{da_2}\frac{da_2}{dz_2}\frac{dz_2}{da_1}\frac{da_1}{dz_1}\frac{dz_1}{db_1} = \frac{-1}{n} \sum_{i=1}^{n} (y^{(i)} - a_2^{(i)})\theta_2\sigma(z_1)(1 - \sigma(z_1)) $$
+$$\nabla_{b_1} J(\theta) = \frac{dJ(\theta)}{da_2}\frac{da_2}{dz_2}\frac{dz_2}{da_1}\frac{da_1}{dz_1}\frac{dz_1}{db_1} = \frac{-1}{n} \sum_{i=1}^{n} (y^{(i)} - a_2^{(i)})\theta_2\sigma(z_1^{(i)})(1 - \sigma(z_1^{(i)})) $$
 
 Then the weight updates for layer k become
 
