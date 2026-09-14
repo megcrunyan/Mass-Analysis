@@ -483,12 +483,14 @@ class nn:
         accuracies = {}
         best_accuracy = 0
         best_weights = {}
+        best_biases = {}
         for alpha in param_opts:
             print(f"Checking learning rate={alpha}")
             losses, val_losses = self.train(alpha=alpha)
             accuracy = 1 - np.sum(abs(self.y_val - self.predict(self.x_val))) / self.y_val.shape[0]
             accuracies[f"({alpha})"] = accuracy
             best_weights[f"({alpha})"] = self.w.copy()
+            best_biases[f"({alpha})"] = self.b.copy()
             if accuracy < best_accuracy:
                 del best_weights[f"({alpha})"]
             else:
@@ -506,6 +508,7 @@ class nn:
             optim = optims[0]
         print(f"The optimal learning rate is {optim}")
         self.w = best_weights[optim]
+        self.b = best_biases[optim]
         self.trained = True
         if detailed_output:
             return optim, max(accuracies.values()), loss_by_param
