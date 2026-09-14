@@ -24,7 +24,7 @@ Plugging in our values, we get:
 $$w = w + \alpha / n \sum_{i=1}^{n}(y^{(i)}-1/(1+e^{-z}))x^{(i)}$$
 
 With L2 regularization, we have the loss function 
-$$J(\theta) = -1/n \sum_{i=1}^{n} (y^{(i)}log(\sigma(z)) + (1-y^{(i)})log(1-\sigma(z))) + (\lambda/n)||w||_2^2$$
+$$J(\theta) = -1/n \sum_{i=1}^{n} (y^{(i)}log(\sigma(z)) + (1-y^{(i)})log(1-\sigma(z))) + (\lambda/n)||w||_2^2 $$
 $$\nabla_\theta J(\theta) = -1/n \sum_{i=1}^{n} (y^{(i)} - 1/(1+e^{-z}))x^{(i)} + (\lambda/n)2w^{(i)}$$
 and the update equation
 $$w = w + \alpha(1/n)\sum_{i=1}^{n}(y^{(i)}-1/(1+e^{-z}))x^{(i)} + (\lambda/n) 2 w$$
@@ -32,7 +32,7 @@ $$w = w + \alpha(1/n)\sum_{i=1}^{n}(y^{(i)}-1/(1+e^{-z}))x^{(i)} + (\lambda/n) 2
 Logistic Regression class has been implemented with options for regularization and a hyperparameter tuning option in which the optimal hyperparameters are selected.
 
 #### `Scikit-learn`
-The logistic regression solver and stochastic gradient descent methods have both been implemented, with SGD being optimized by a Grid Search.
+The logistic regression solver and stochastic gradient descent methods have both been implemented, with SGD being optimized by a Grid Search. 
 
 ### Neural Network
 #### From Scratch
