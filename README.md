@@ -16,18 +16,18 @@ $$J(\theta) = -1/n \sum_{i=1}^{n} y^{(i)}log(\sigma(z)) + (1-y^{(i)})log(1-\sigm
 $$\nabla_\theta \sigma(z) = \sigma(z)(1 - \sigma(z))\nabla_\theta z$$
 $$\nabla_\theta z = x^{(i)}$$
  Then the gradient of the loss function $J$ becomes: 
-$$\nabla_\theta J(\theta) = -1/n \sum_{i=1}^{n} (y^{(i)} 1/\sigma(z)\sigma(z)(1-\sigma(z))x^{(i)} + (1 - y^{(i)})1/(1-\sigma(z))-\sigma(z)(1-\sigma(z))x^{(i)})$$
+$$\nabla_\theta J(\theta) = -1/n \sum_{i=1}^{n} (y^{(i)} \frac{\sigma(z)(1-\sigma(z))}{\sigma(z)} + (1 - y^{(i)})\frac{-\sigma(z)(1-\sigma(z))}{(1-\sigma(z))})x^{(i)}$$
 Simplifying, we get:
 $$\nabla_\theta J(\theta) = -1/n \sum_{i=1}^{n} (y^{(i)} - \sigma(z))x^{(i)} = -1/n \sum_{i=1}^{n} (y^{(i)} - 1/(1+e^{-z}))x^{(i)}$$
 The weight update equation is given as: $$w = w - \alpha \nabla_\theta J(\theta)$$
 Plugging in our values, we get:
-$$w = w + \alpha / n \sum_{i=1}^{n}(y^{(i)}-1/(1+e^{-z}))x^{(i)}$$
+$$w = w + \alpha / n \sum_{i=1}^{n}(y^{(i)}-\frac{1}{(1+e^{-z})})x^{(i)}$$
 
 With L2 regularization, we have the loss function 
 $$J(\theta) = -1/n \sum_{i=1}^{n} (y^{(i)}log(\sigma(z)) + (1-y^{(i)})log(1-\sigma(z))) + (\lambda/n)||w||_2^2 $$
-$$\nabla_\theta J(\theta) = -1/n \sum_{i=1}^{n} (y^{(i)} - 1/(1+e^{-z}))x^{(i)} + (\lambda/n)2w^{(i)}$$
+$$\nabla_\theta J(\theta) = -1/n \sum_{i=1}^{n} (y^{(i)} - \frac{1}{(1+e^{-z})})x^{(i)} + (\lambda/n)2w^{(i)}$$
 and the update equation
-$$w = w + \alpha(1/n)\sum_{i=1}^{n}(y^{(i)}-1/(1+e^{-z}))x^{(i)} + (\lambda/n) 2 w$$
+$$w = w + \alpha(1/n)\sum_{i=1}^{n}(y^{(i)}-\frac{1}{(1+e^{-z})})x^{(i)} + (\lambda/n) 2 w$$
 #### From Scratch
 Logistic Regression class has been implemented with options for regularization and a hyperparameter tuning option in which the optimal hyperparameters are selected.
 
