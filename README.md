@@ -43,8 +43,23 @@ Logistic Regression class has been implemented with options for regularization a
 The logistic regression solver and stochastic gradient descent methods have both been implemented, with SGD being optimized by a Grid Search. 
 
 ### Neural Network
+Many of the principles from our from scratch logistic regression implementation, but now with more layers.
+To demonstrate the derivation, let's look at a simple two-layer neural network using the same binary cross-entropy loss function as above. 
+
+$$z_1 = \theta^T_1x^{(i)} + b_1$$
+
+$$a_1 = \sigma(z_1) = \frac{1}{(1+e^{-z_1})}$$
+
+$$z_2 = \theta^T_2a_1 + b_2$$
+
+$$a_2 = \sigma(z_2) = \frac{1}{(1+e^{-z_2})}$$
+
+$$J(\theta) = -1/n \sum_{i=1}^{n} y^{(i)}log(a_2) + (1-y^{(i)})log(1-a_2)$$
+
+
+
 #### From Scratch
-TO BE COMPLETED
+A neural network class has been implemented with options to select the number of layers and neurons at each layer with a hyperparameter tuning option in which the optimal learning rate is selected.
 
 #### `pytorch`
 TO BE COMPLETED
